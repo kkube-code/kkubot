@@ -9,4 +9,4 @@ client.once(Events.ClientReady, (c) => {
     console.log(`ready logged in as ${c.user.tag}`);
 });
 
-client.login(process.env.TOKEN);
+client.login(process.env.TOKEN)
