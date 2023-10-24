@@ -19,9 +19,8 @@ const updateSlashCommands = async(commands) => {
 
     const rest = new REST({versions:10}).setToken(process.env.TOKEN);
     const result = await rest.put(
-        Routes.applicationGuildCommands(
+        Routes.applicationCommands(
             process.env.APP_ID,
-            process.env.SERVER_ID
         ),
         {
             body: commands
