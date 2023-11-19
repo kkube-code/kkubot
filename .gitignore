@@ -2,3 +2,4 @@ node_modules
 yarn.lock
 ignores
 .env
+src/store/overguild.json

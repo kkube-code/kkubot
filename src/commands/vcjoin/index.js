@@ -10,8 +10,7 @@ export const command = new SlashCommandBuilder()
 export const action = async (ctx) => {
     const appStore = useAppStore()
     var Embed
-    var channel = ctx.member.voice.channel
-    console.log(ctx.member.voice.channel)
+    console.log(ctx.member.voice.channelId)
     if (ctx.member.voice.channel === null) {
         Embed = new EmbedBuilder()
             .setTitle('加入失敗')
@@ -28,7 +27,7 @@ export const action = async (ctx) => {
             
         //try {
             const connection = joinVoiceChannel({
-                channelId: channel.id,
+                channelId: ctx.member.voice.channelId,
                 guildId: ctx.guildId,
                 adapterCreator: ctx.guild.voiceAdapterCreator,
             });
@@ -37,7 +36,7 @@ export const action = async (ctx) => {
             Embed = new EmbedBuilder()
                 .setTitle('加入成功')
                 .setColor('#00ffff')
-                .setDescription(`加入的語音頻道:${channel.name}`)
+                .setDescription(`加入的語音頻道:${ctx.member.voice.channel.name}`)
 
             
         //} catch (error) {

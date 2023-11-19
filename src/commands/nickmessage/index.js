@@ -9,5 +9,5 @@ export const command = new SlashCommandBuilder()
 			.setRequired(true))
 export const action = async (ctx) => {
     ctx.reply({ content: "已發送匿名訊息", ephemeral: true })
-    await ctx.channel.send(ctx.options.getString('message'))
+    await ctx.channel.send({ content: ctx.options.getString('message'), allowedMentions: { parse: [] }})
 }

@@ -2,7 +2,7 @@ import { SlashCommandBuilder, EmbedBuilder } from 'discord.js'
 
 export const command = new SlashCommandBuilder()
     .setName("report")
-    .setDescription("回傳BOT錯誤至後台/工程服")
+    .setDescription("回傳BOT錯誤(或敲碗)至後台/工程服")
     .addStringOption(option =>
 		option.setName('destination')
 			.setDescription('1:後台 2:工程服')
