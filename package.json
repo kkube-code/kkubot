@@ -6,13 +6,16 @@
   },
   "dependencies": {
     "@discordjs/voice": "^0.16.0",
+    "discord": "^0.8.2",
     "discord-reply": "^0.1.2",
+    "discord-ytdl-core": "^5.0.4",
     "discord.js": "^14.13.0",
     "dotenv": "^16.3.1",
     "fast-glob": "^3.3.1",
     "pinia": "^2.1.6",
     "vite-node": "^0.34.6",
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "ytdl-core": "^4.11.5"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

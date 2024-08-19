@@ -32,23 +32,16 @@ export const action = async (msg) => {
                 }
                 if(msg.content.includes('<@1119863977242005684>')) {
                     if (useAppStore().client.user.equals(msg.author)) return
-                    msg.reply(`歐 tag歐 OK Der~`);
+                    msg.reply(`^^ ~`);
                 }
 
                 break
             } else if (msg.channel.id == user.overguilds[i].channel) continue
             const c = msg.client.channels.cache.get(user.overguilds[i].channel)
             if (useAppStore().client.user.equals(msg.author) || msg.author.bot) return
-            c.send({content:`**${msg.author.displayName} (${msg.author.username})** : ${msg}\n`, allowedMentions: { parse: [] }})
-            if(msg.content === "ww"){//當檢測到訊息為hi的時候
-                if (useAppStore().client.user.equals(msg.author)) return
-                c.send(`**kkubot (kkubot)** : <@978937687958491146>`);
-            }
-            if(msg.content.includes('<@1119863977242005684>')) {
-                if (useAppStore().client.user.equals(msg.author)) return
-                c.send(`**kkubot (kkubot) : **歐 tag歐 OK Der~`);
-            }
-            
+            c.send({content:`[**${msg.guild.name}**]
+**${msg.author.displayName} (${msg.author.username})** : ${msg}
+** **`, allowedMentions: { parse: [] }})
         }
     })
 }

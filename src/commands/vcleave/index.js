@@ -10,15 +10,24 @@ export const command = new SlashCommandBuilder()
 export const action = async (ctx) => {
     const appStore = useAppStore()
     var Embed
-    if (appStore.vc) {
-        const connection = appStore.connection;
+    var vc = false
+    var connection
+
+    for (var i = 0; i < appStore.connections.length; i++) {
+        var _connection = appStore.connections[i]
+        if (_connection.guild == ctx.guildId) {
+            vc = true
+            connection = _connection.connection
+            appStore.connections.splice(i, 1)
+        }
+    }
+
+    if (vc) {
         connection.destroy()
         Embed = new EmbedBuilder()
             .setTitle("離開成功")
             .setColor('#00ffff')
             .setDescription('我離開了語音頻道');
-        appStore.vc = false
-        appStore.connection = null
     } else {
         Embed = new EmbedBuilder()
             .setTitle("離開失敗")

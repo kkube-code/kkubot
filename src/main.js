@@ -14,12 +14,13 @@ const client = new Client({intents:[
     IntentsBitField.Flags.DirectMessages,
     IntentsBitField.Flags.MessageContent,
     IntentsBitField.Flags.GuildPresences,
+    IntentsBitField.Flags.GuildVoiceStates
     ]}, {disableEveryone: true});
 const appStore = useAppStore();
 appStore.client = client;
 
 const errinit = (error) => {
-    client.once(Events.ClientReady, () => {
+    client.once(Events.ClientReady, (c) => {
 
         const readline = require('readline').createInterface({
             input: process.stdin,
@@ -32,8 +33,9 @@ const errinit = (error) => {
                     //{ name: 'official channel', type: ActivityType.Streaming, url: 'https://www.youtube.com/watch?v=QZWgozZVZTo' },
                     { name: `stable v${process.env.VERSION}` }
                 ], status: 'online' });
-                console.log(`ready logged in as ${c.user.tag}`);
-                console.log("client is running")
+                console.log(`logged as unknown --maintenance`);
+                console.log(`${error}\n\n\n`)
+                console.log("---initializing failsafe---")
                 readline.close();
     
             } else {

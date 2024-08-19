@@ -5,10 +5,11 @@ export const useAppStore = defineStore('app', {
         commandsActionMap: null,
         client: null,
         vc: false,
-        connection: null,
+        connections: [],
         err: false,
         ver: process.env.VERSION,
-        devlist: ['kkube_coding_tw','command_cat']
+        devlist: ['kkube_coding_tw','command_cat'],
+        music_queue: []
     }),
 
     getters: {},
